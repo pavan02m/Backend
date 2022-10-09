@@ -1,12 +1,12 @@
-const ownerModel = require("../schema/owners");
+const plantModel = require("../schema/roles");
 const returnMessage = require("./message");
 const messages = require("../lang/messages.json");
 
 module.exports = {
   index: async(req,res) => {
     try {
-      const owners = await ownerModel.find({});
-      returnMessage.successMessage(res,messages.successMessages.getAlltudents,owners);
+      const roles = await plantModel.find({});
+      returnMessage.successMessage(res,messages.successMessages.getAlltudents,roles);
     } catch (error) {
       returnMessage.errorMessage(res,error);
     }
@@ -15,11 +15,11 @@ module.exports = {
   create: async (req, res) => {
     try {
       const { name } = req.body;
-      const isNameTaken = await ownerModel.findOne({ name });
+      const isNameTaken = await plantModel.findOne({ name });
       if (isNameTaken)
         returnMessage.errorMessage(res,messages.errorMessages.countryAlreadyExists)
 
-      const batch = await ownerModel.create({ ...req.body });
+      const batch = await plantModel.create({ ...req.body });
       returnMessage.successMessage(res,messages.successMessages.addbatch,batch);
     } catch (error) {
       returnMessage.errorMessage(res,error);
@@ -28,8 +28,8 @@ module.exports = {
 
   edit: async(req,res) => {
     try {
-      const owner = await ownerModel.findOne({_id: req.params['id'] })
-      returnMessage.successMessage(res,messages.successMessages.showrole, owner);
+      const plants = await plantModel.findOne({_id: req.params['id'] })
+      returnMessage.successMessage(res,messages.successMessages.showrole, plants);
     } catch(error) {
       returnMessage.errorMessage(res,error);
     }
@@ -37,8 +37,8 @@ module.exports = {
 
   update: async(req,res) => {
     try {
-      const owner = await ownerModel.findByIdAndUpdate(req.params['id'], { ...req.body });
-      returnMessage.successMessage(res,messages.successMessages.updaterole, owner);
+      const plants = await plantModel.findByIdAndUpdate(req.params['id'], { ...req.body });
+      returnMessage.successMessage(res,messages.successMessages.updaterole, plants);
     } catch (error) {
       returnMessage.errorMessage(res,error);
     }
@@ -46,8 +46,8 @@ module.exports = {
 
   delete: async(req,res) => {
     try {
-      const owner = await ownerModel.remove({ '_id': req.params['id'] });
-      console.log(owner)
+      const plants = await plantModel.remove({ '_id': req.params['id'] });
+      console.log(plants)
       returnMessage.successMessage(res,messages.successMessages.deleterole);
     } catch (error) {
       returnMessage.errorMessage(res,error);
@@ -56,9 +56,9 @@ module.exports = {
   
   show: async(req,res) => {
     try {
-      const owner = await ownerModel.findOne({_id: req.params['id'] })
-      console.log(owner)
-      returnMessage.successMessage(res,messages.successMessages.showrole, owner);
+      const plants = await plantModel.findOne({_id: req.params['id'] })
+      console.log(plants)
+      returnMessage.successMessage(res,messages.successMessages.showrole, plants);
     } catch(error) {
       returnMessage.errorMessage(res,error);
     }
