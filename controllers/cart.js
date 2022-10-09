@@ -28,8 +28,8 @@ module.exports = {
 
   edit: async(req,res) => {
     try {
-      const role = await cartModel.findOne({_id: req.params['id'] })
-      returnMessage.successMessage(res,messages.successMessages.showrole, role);
+      const cart = await cartModel.findOne({_id: req.params['id'] })
+      returnMessage.successMessage(res,messages.successMessages.showrole, cart);
     } catch(error) {
       returnMessage.errorMessage(res,error);
     }
@@ -37,8 +37,8 @@ module.exports = {
 
   update: async(req,res) => {
     try {
-      const role = await cartModel.findByIdAndUpdate(req.params['id'], { ...req.body });
-      returnMessage.successMessage(res,messages.successMessages.updaterole, role);
+      const cart = await cartModel.findByIdAndUpdate(req.params['id'], { ...req.body });
+      returnMessage.successMessage(res,messages.successMessages.updaterole, cart);
     } catch (error) {
       returnMessage.errorMessage(res,error);
     }
@@ -46,8 +46,8 @@ module.exports = {
 
   delete: async(req,res) => {
     try {
-      const role = await cartModel.remove({ '_id': req.params['id'] });
-      console.log(role)
+      const cart = await cartModel.remove({ '_id': req.params['id'] });
+      console.log(cart)
       returnMessage.successMessage(res,messages.successMessages.deleterole);
     } catch (error) {
       returnMessage.errorMessage(res,error);
@@ -56,9 +56,9 @@ module.exports = {
   
   show: async(req,res) => {
     try {
-      const role = await cartModel.findOne({_id: req.params['id'] })
-      console.log(role)
-      returnMessage.successMessage(res,messages.successMessages.showrole, role);
+      const cart = await cartModel.findOne({_id: req.params['id'] })
+      console.log(cart)
+      returnMessage.successMessage(res,messages.successMessages.showrole, cart);
     } catch(error) {
       returnMessage.errorMessage(res,error);
     }

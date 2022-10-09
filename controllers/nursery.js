@@ -1,12 +1,12 @@
-const nurseryModel = require("../schema/roles");
+const nurseryModel = require("../schema/nursery");
 const returnMessage = require("./message");
 const messages = require("../lang/messages.json");
 
 module.exports = {
   index: async(req,res) => {
     try {
-      const roles = await nurseryModel.find({});
-      returnMessage.successMessage(res,messages.successMessages.getAlltudents,roles);
+      const nursery = await nurseryModel.find({});
+      returnMessage.successMessage(res,messages.successMessages.getAlltudents,nursery);
     } catch (error) {
       returnMessage.errorMessage(res,error);
     }
