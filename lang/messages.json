@@ -1,0 +1,33 @@
+{
+    "successMessages": {
+        "getAllCountries":"Countries data retrieved successfully",
+        "getAllRoles":"Roles data retrieved successfully",
+        "addCountry":"Country added successfully",
+        "showCountry":"Country found!!",
+        "deleteCountry": "Country deleted successfully",
+        "updateCountry": "Updation Successfull",
+        "getAllStates":"States data retrieved successfully",
+        "addState":"state added successfully",
+        "showState":"state found!!",
+        "deleteState": "state deleted successfully",
+        "updateState": "Updation Successfull",
+        "getAllDistricts":"Districts data retrieved successfully",
+        "addDistrict":"District added successfully",
+        "showDistrict":"District found!!",
+        "deleteDistrict": "District deleted successfully",
+        "updateDistrict": "Updation Successfull",
+        "addRole":"Role added successfully",
+        "addRoutePermission" : "Route Permission Added Succesfully"
+    },
+
+    "errorMessages": {
+        "countryAlreadyExists": "Enter Country already exists",
+        "stateAlreadyExists": "Enter State already exists",
+        "incorrectState": "Enter State Country detail",
+        "districtAlreadyExists": "Enter District already exists",
+        "incorrectDistrict": "Enter correct District detail",
+        "incorrectRole":"Error while adding role",
+        "addRoutePermission": "Unable to Add Route Permission",
+        "fieldCanNotEmpty":"Empty fields are not allowed"
+    }
+}
